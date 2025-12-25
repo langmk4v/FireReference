@@ -1,15 +1,11 @@
-see Lexer;
+import Lexer::Token;
+import Compiler::LowedNode;
 
-// "see" 構文:
-//   ファイル内のシンボル名を参照可能にする。
-//
-//   構文は import と同じだが、ファイル内の関数の呼び出し・クラスの実体化は不可能。
-//   あくまでも 関数、class, enum, namespace などの名前だけを参照可能。
-
-namespace FireCC {
+namespace firec {
     enum NodeKind {
         Literal(Object),
         CallFunc(func: Node, args: vector<Node>),
+        KeyValuePair(key: Node, value: Node),
         Expr(ExprKind, vector<Node>),
     }
 
@@ -18,12 +14,14 @@ namespace FireCC {
         Sub,
     }
     
-    struct Node {
-        kind: NodeKind,
-        token: Lexer::Token,
-    }
+    class Node {
+        var kind: NodeKind;
+        var token: Lexer::Token;
 
-    methods (Node) {
+        fn lowering() -> LowedNode {
+            ...
+        }
+
         fn new_value(tok: Lexer::Token, val: Object) -> Node {
             return Node(kind: NodeKind::Literal(val), token: tok);
         }

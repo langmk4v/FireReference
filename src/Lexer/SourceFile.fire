@@ -1,4 +1,4 @@
-
+import 
 
 namespace firec {
     struct SourceFile {
@@ -7,12 +7,14 @@ namespace firec {
         fs: File,
     }
 
-    struct SourceLocation {
-        source: ref SourceFile,
-        position: usize
-    }
+    class SourceLocation {
+        var source: ref SourceFile;
+        var position: usize;
 
-    methods SourceFile {
+        default {
+            source: Null, position: 0
+        }
+
         fn open(path: string) -> SourceFile {
             ...
         }

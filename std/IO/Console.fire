@@ -1,4 +1,4 @@
-namespace IO::Console {
-    fn print(...);
-    fn println(...);
-}
+fn print(...);
+fn println(...);
+
+fn input(prompt: string) -> string;

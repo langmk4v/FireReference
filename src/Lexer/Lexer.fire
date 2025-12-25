@@ -56,11 +56,13 @@ namespace firec {
         fn find_punct(self) -> Option<(TokenPunctuators, string)> {
             var static table : Array<(TokenPunctuators, string)> = [
                 (TokenPunctuators::Plus, "+"),
-                (TokenPunctuators::Minus, "-"),
+                (TokenPunctuators::Minus, "-")
             ];
 
-            for (kind, text) in table {
+            for pair in table {
+                if self.eat(pair.second) {
 
+                }
             }
 
             return nullopt;

@@ -1,5 +1,10 @@
-namespace FireCC {
+namespace firec {
     virtual class IR {
         
+
+
+        fn from(Lowed) -> IR {
+
+        }
     }
 }

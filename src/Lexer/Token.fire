@@ -1,4 +1,4 @@
-see SourceFile;
+import SourceFile;
 
 namespace firec {
     enum TokenKind {
@@ -17,15 +17,15 @@ namespace firec {
         Minus,
     }
 
-    struct Token {
-        kind: TokenKind,
-        text: string,
-        location: SourceLocation,
-    }
+    class Token {
+        var kind: TokenKind;
+        var text: string;
+        var location: SourceLocation;
 
-    methods Token {
-        fn empty() -> Token {
-            return Token(kind: TokenKind::Empty, text: "", location: SourceLocation(source: null, position: 0));
+        default {
+            kind: TokenKind::Empty,
+            text: "",
+            location: Null
         }
     }
 }
