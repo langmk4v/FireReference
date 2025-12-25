@@ -1,0 +1,13 @@
+namespace firec {
+    enum TokenKind {
+        Int(i64),
+        Float(f64),
+        Char(char),
+        String(string),
+        
+    }
+
+    struct Token {
+        kind: TokenKind,
+    }
+}
