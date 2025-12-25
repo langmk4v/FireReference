@@ -1,10 +1,15 @@
 namespace firec {
     enum HIRKind {
-        Expr,
-        Vardef,
+        Expr(Node),
+        Vardef(name: string, init: HIR),
         Return,
         Struct,
         Function,
     }
+
+    struct HIR {
+
+    }
+
 
 }
