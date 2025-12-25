@@ -1,0 +1,26 @@
+
+struct firec::SourceFile {
+    path: string,
+    data: string
+}
+
+struct firec::SourceLocation {
+    source: fire::SourceFile ref,
+    position: usize
+}
+
+struct firec::Lexer {
+    source: firec::SourceFile,
+    pos: usize,
+    len: usize
+}
+
+fn firec::SourceFile::open(path: string) -> fire::SourceFile {
+    return fire::SourceFile(fs::open(path).read_text());
+}
+
+fn firec::Lexer::new(src: firec::SourceFile) -> firec::Lexer {
+    return firec::Lexer(source: src, pos: 0, len: src.data.length());
+}
+
+fn 
