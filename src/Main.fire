@@ -3,46 +3,33 @@ import Parser;
 import Sema;
 import Compiler;
 
-// import のルール:
-//   ファイル名を指定  --> そのファイルを読み込み
-//   フォルダ名        --> そのフォルダ内のファイルを全て読み込む
-//
-// フォルダを読み込む場合、src フォルダを含み 4 層までに限定。
-//  ( 例: src/A/B/C/prg.fire )
-//
-// また、相対パスも使用できるが、その場合は警告メッセージでフルパスをプログラマに通知する。
-// 通知を消すためには、絶対パスを使用する。
-
-using firec::*;
-
-// using: 名前空間の省略
+using firec;
 
 fn compile(path: string) -> bool {
     try {
-        var tokens = Lexer::new(SourceFile::new(path)).lex();
+        var tokens = Lexer::new(SourceFile::open(path)).lex();
 
         var node = Parser::new(tokens).parse_all();
 
         Sema::analyze(node);
 
-        Compiler::compile(IR::from(Node::lowering(node)));
+        Compiler::compile_full(IR::from(Node::lowering(node)));
 
         return true;
     }
-    catch FireError e {
+    catch e: FireError {
         e.print();
     }
 
     return false;
 }
 
-fn main(args: string...) -> int {
+fn main(args: Vec<string>) -> int {
     var inputs : Vec<string>;
 
     for arg in args {
         if arg.starts("-") {
             var option = arg[1:];
-            ...
         }
         else {
             inputs.append(arg);

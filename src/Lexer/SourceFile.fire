@@ -1,22 +1,17 @@
-import 
+import std::IO::FileSystem;
 
 namespace firec {
-    struct SourceFile {
-        path: string,
-        data: string,
-        fs: File,
+    class SourceFile {
+        var path: string;
+        var data: string;
+
+        fn open(path: string) -> SourceFile {
+            return SourceFile(fs::open(path).read_text());
+        }
     }
 
     class SourceLocation {
-        var source: ref SourceFile;
+        var source: SourceFile ref;
         var position: usize;
-
-        default {
-            source: Null, position: 0
-        }
-
-        fn open(path: string) -> SourceFile {
-            ...
-        }
     }
 }

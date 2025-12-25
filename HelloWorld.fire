@@ -1,0 +1,5 @@
+import std::IO::Console;
+
+fn main() {
+    println("Hello, World!");
+}
