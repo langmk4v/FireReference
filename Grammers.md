@@ -45,7 +45,7 @@ class-default-ctor  ::=  "default" "{" <name-expr-pair> ("," <name-expr-pair>)* 
 enum                ::=  "enum" identifier <enum-scope>
 enum-scope          ::=  "{" <enumerator-def> ("," <enumerator-def>)* "}"
 enumerator-def      ::=  identifier <enumerator-variant>?
-enumerator-variant  ::=  "(" (identifier | <struct-field-defs>) ")"
+enumerator-variant  ::=  "(" (<type-name> ("," <type-name>)* | <struct-field-defs>) ")"
 
 namespace        ::=  "namespace" identifier ("::" identifier)* <namespace-scope>
 namespace-scope  ::=  "{" (<namespace> | <class> | <enum> | <function>)* "}"
