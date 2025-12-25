@@ -1,0 +1,4 @@
+namespace Random {
+    fn make_int() -> i64;
+    fn mkae_float() -> f64;
+}

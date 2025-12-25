@@ -1,13 +1,31 @@
+see SourceFile;
+
 namespace firec {
     enum TokenKind {
-        Int(i64),
+        Emtpy,
+        Integer(i64),
         Float(f64),
         Char(char),
         String(string),
-        
+        Identifier,
+        Punctuator(TokenPunctuators),
+        Eof
+    }
+
+    enum TokenPunctuators {
+        Plus,
+        Minus,
     }
 
     struct Token {
         kind: TokenKind,
+        text: string,
+        location: SourceLocation,
+    }
+
+    methods Token {
+        fn empty() -> Token {
+            return Token(kind: TokenKind::Empty, text: "", location: SourceLocation(source: null, position: 0));
+        }
     }
 }

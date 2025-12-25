@@ -1,0 +1,20 @@
+
+
+namespace firec {
+    struct SourceFile {
+        path: string,
+        data: string,
+        fs: File,
+    }
+
+    struct SourceLocation {
+        source: ref SourceFile,
+        position: usize
+    }
+
+    methods SourceFile {
+        fn open(path: string) -> SourceFile {
+            ...
+        }
+    }
+}
