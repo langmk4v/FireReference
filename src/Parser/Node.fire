@@ -1,0 +1,17 @@
+see Lexer/*;
+
+namespace FireCC {
+    enum NodeKind {
+        Literal(Object),
+
+    }
+    
+    struct Node {
+        kind: NodeKind,
+        token: 
+    }
+
+    methods <Node> {
+
+    }
+}

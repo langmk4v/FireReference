@@ -1,0 +1,5 @@
+namespace FireCC {
+    virtual class IR {
+        
+    }
+}

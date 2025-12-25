@@ -1,16 +1,17 @@
-# All Grammers and Syntax rules, and tokens of Fire-language.
+# Fire-lang Grammers (WIP)
 
 ## Tokens
 ```
-
+integer     ::=  [0-9]+
+float       ::=  ([0-9]+)(\.)?[fF]?
+char        ::=  \'(.+)\'
 ```
 
-## Expressions
+## Expression (Terms)
+```
+value   ::=  integer | float | char | string | boolean
 
-### factor
-```
+factor  ::=  value
 ```
 
-### unary
-```
-```
+## Expression (Full)
